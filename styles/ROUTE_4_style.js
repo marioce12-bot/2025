@@ -1,19 +1,19 @@
 var size = 0;
 var placement = 'point';
-function categories_ROUTE_3(feature, value, size, resolution, labelText,
+function categories_ROUTE_4(feature, value, size, resolution, labelText,
                        labelFont, labelFill, bufferColor, bufferWidth,
                        placement) {
                 var valueStr = (value !== null && value !== undefined) ? value.toString() : 'default';
                 switch(valueStr) {case 'RNIE':
                     return [ new ol.style.Style({
-        stroke: new ol.style.Stroke({color: 'rgba(237,21,49,1.0)', lineDash: null, lineCap: 'square', lineJoin: 'bevel', width: 2.508}),
+        stroke: new ol.style.Stroke({color: 'rgba(219,30,42,1.0)', lineDash: null, lineCap: 'square', lineJoin: 'bevel', width: 2.508}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
                               bufferWidth)
     })];
                     break;}};
 
-var style_ROUTE_3 = function(feature, resolution){
+var style_ROUTE_4 = function(feature, resolution){
     var context = {
         feature: feature,
         variables: {}
@@ -33,7 +33,7 @@ var style_ROUTE_3 = function(feature, resolution){
         labelText = String("");
     }
     
-    var style = categories_ROUTE_3(feature, value, size, resolution, labelText,
+    var style = categories_ROUTE_4(feature, value, size, resolution, labelText,
                             labelFont, labelFill, bufferColor,
                             bufferWidth, placement);
 

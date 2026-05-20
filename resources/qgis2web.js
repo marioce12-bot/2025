@@ -9,12 +9,13 @@ var map = new ol.Map({
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([186249.600066, 693858.162100, 228294.723069, 721117.786032], map.getSize());
+map.getView().fit([158495.004369, 677415.707883, 246493.563957, 731944.069954], map.getSize());
 
 //full zooms only
 map.getView().setProperties({constrainResolution: true});
 
 //change cursor
+var enablePointerHover = false;
 function pointerOnFeature(evt) {
     if (evt.dragging) {
         return;
@@ -26,7 +27,9 @@ function pointerOnFeature(evt) {
     });
     map.getViewport().style.cursor = hasFeature ? "pointer" : "";
 }
-map.on('pointermove', pointerOnFeature);
+if (enablePointerHover) {
+    map.on('pointermove', pointerOnFeature);
+}
 function styleCursorMove() {
     map.on('pointerdrag', function() {
         map.getViewport().style.cursor = "move";
@@ -148,7 +151,7 @@ var featureOverlay = new ol.layer.Vector({
 });
 
 var doHighlight = false;
-var doHover = true;
+var doHover = false;
 
 function createPopupField(currentFeature, currentFeatureKeys, layer) {
     var popupText = '';
