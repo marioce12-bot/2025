@@ -363,12 +363,13 @@
         }
 
         .coordinate-readout {
-            position: fixed;
+            position: absolute;
             left: 50%;
-            bottom: max(12px, env(safe-area-inset-bottom));
-            z-index: 1200;
+            bottom: 18px;
+            z-index: 30;
             display: block !important;
             transform: translateX(-50%);
+            max-width: calc(100% - 32px);
             padding: 7px 12px;
             border: 1px solid rgba(31, 111, 74, 0.18);
             border-radius: 999px;
@@ -376,6 +377,8 @@
             box-shadow: 0 12px 28px rgba(20, 40, 34, 0.16);
             color: var(--green-dark);
             pointer-events: none;
+            text-align: center;
+            white-space: nowrap;
             backdrop-filter: blur(12px);
         }
 
@@ -428,7 +431,6 @@
                             <button class="base-toggle active" id="base-osm" type="button">OSM</button>
                             <button class="base-toggle" id="base-satellite" type="button">Satellite</button>
                         </div>
-                        <div class="coordinate-readout" id="coordinate-readout">Lon: --, Lat: --</div>
                         <div class="tool-status" id="place-search-status" aria-live="polite">Saisissez un lieu pour centrer la carte.</div>
                     </section>
 </header>
@@ -440,7 +442,7 @@
                 <section class="info-card"><p class="section-label">Surfaces</p><h2>Totaux par classe</h2><div class="surface-table-wrap" aria-label="Surfaces par classe d'occupation du sol"><table class="surface-table"><thead><tr><th>Classe</th><th>Surface ha</th><th>Surface km²</th><th>Part</th></tr></thead><tbody><tr><td><span class="surface-class"><img src="styles/legend/Classification2025_1_0.png" alt=""> Mangroves</span></td><td>1 479,52</td><td>14,80</td><td>5,27 %</td></tr><tr><td><span class="surface-class"><img src="styles/legend/Classification2025_1_1.png" alt=""> Plan d'eau</span></td><td>1 162,15</td><td>11,62</td><td>4,14 %</td></tr><tr><td><span class="surface-class"><img src="styles/legend/Classification2025_1_2.png" alt=""> Sol nu</span></td><td>533,85</td><td>5,34</td><td>1,90 %</td></tr><tr><td><span class="surface-class"><img src="styles/legend/Classification2025_1_3.png" alt=""> Culture et jachère</span></td><td>2 975,68</td><td>29,76</td><td>10,60 %</td></tr><tr><td><span class="surface-class"><img src="styles/legend/Classification2025_1_4.png" alt=""> Savane marécageuse</span></td><td>4 919,26</td><td>49,19</td><td>17,53 %</td></tr><tr><td><span class="surface-class"><img src="styles/legend/Classification2025_1_5.png" alt=""> Habitations</span></td><td>1 901,90</td><td>19,02</td><td>6,78 %</td></tr><tr><td><span class="surface-class"><img src="styles/legend/Classification2025_1_6.png" alt=""> Forêt dense</span></td><td>7 243,05</td><td>72,43</td><td>25,81 %</td></tr><tr><td><span class="surface-class"><img src="styles/legend/Classification2025_1_7.png" alt=""> Savane arborée / arbustive</span></td><td>7 849,56</td><td>78,50</td><td>27,97 %</td></tr></tbody><tfoot><tr><td>Total classé</td><td>28 064,96</td><td>280,65</td><td>100 %</td></tr></tfoot></table></div><p class="table-note">Surfaces calculées depuis le raster géoréférencé exporté. Les pixels anti-crénelés du PNG sont affectés à la couleur de classe la plus proche.</p></section>
                 <section class="info-card"><p class="section-label">Repères</p><h2>Limites et routes</h2><ul class="legend-list"><li><img src="styles/legend/Limitesdescommunes_0.png" alt=""> Limites des communes</li><li><img src="styles/legend/Limite_2.png" alt=""> Limite</li><li><img src="styles/legend/Routesecondaire_3.png" alt=""> Route secondaire</li><li><img src="styles/legend/ROUTE_4_0.png" alt=""> Route nationale RNIE</li></ul></section>
             </aside>
-            <section class="map-card" aria-label="Carte interactive"><div class="map-toolbar"><div><h2>Carte interactive</h2><p>Zoomez, activez les couches et cliquez sur les éléments vectoriels pour afficher les attributs.</p></div><span class="status-badge">Raster conservé sans modification</span></div><div class="map-shell"><div id="map"><div id="popup" class="ol-popup"><a href="#" id="popup-closer" class="ol-popup-closer"></a><div id="popup-content"></div></div></div></div></section>
+            <section class="map-card" aria-label="Carte interactive"><div class="map-toolbar"><div><h2>Carte interactive</h2><p>Zoomez, activez les couches et cliquez sur les éléments vectoriels pour afficher les attributs.</p></div><span class="status-badge">Raster conservé sans modification</span></div><div class="map-shell"><div id="map"><div id="popup" class="ol-popup"><a href="#" id="popup-closer" class="ol-popup-closer"></a><div id="popup-content"></div></div></div><div class="coordinate-readout" id="coordinate-readout">Lon: --, Lat: --</div></div></section>
         </main>
     </div>
     <script src="resources/qgis2web_expressions.js"></script>
